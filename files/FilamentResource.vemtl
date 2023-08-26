@@ -13,6 +13,8 @@ use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use App\Filament\Resources\<$ crudModelName $>Resource\Pages;
 <% if(this.crudHasTextInputs) { %>
