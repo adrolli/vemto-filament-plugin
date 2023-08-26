@@ -6,10 +6,11 @@
 namespace App\Filament\Resources\<$ this.inverseRelationshipModel.name $>Resource\RelationManagers;
 
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
-use Filament\Tables\Table;
+use Filament\Resources\{
+    Form, Table
+};
+use Filament\Resources\RelationManagers\RelationManager;
 <% if(this.crudHasTextInputs) { %>
 use Filament\Forms\Components\TextInput;
 <% } %>
@@ -39,7 +40,7 @@ use Filament\Forms\Components\RichEditor;
 <% } %>
 <% if(this.crud.hasBelongsToInputs()) { %>
 use Filament\Forms\Components\BelongsToSelect;
-use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\MultiSelectFilter;
 <% } %>
 <% if(this.crud.model.hasTimestampFields()) { %>
 use Illuminate\Database\Eloquent\Builder;
@@ -196,8 +197,8 @@ class <$ this.crud.model.plural.case('pascalCase') $>RelationManager extends Rel
                     <###>
                     Tables\Filters\Filter::make('created_at')
                         ->form([
-                            DatePicker::make('created_from'),
-                            DatePicker::make('created_until'),
+                            Forms\Components\DatePicker::make('created_from'),
+                            Forms\Components\DatePicker::make('created_until'),
                         ])
                         ->query(function (Builder $query, array $data): Builder {
                             return $query
@@ -213,7 +214,7 @@ class <$ this.crud.model.plural.case('pascalCase') $>RelationManager extends Rel
                         <% let inputRelModel = belongsToInput.relationship.model %>
                         <###>
                         <% if(belongsToInput.isForRelationship()) { %>
-                        SelectFilter::make('<$ belongsToInput.name $>')->multiple()->relationship('<$ belongsToInput.relationship.name.case('camelCase') $>', '<$ inputRelModel.getLabelFieldName() $>'),
+                        MultiSelectFilter::make('<$ belongsToInput.name $>')->relationship('<$ belongsToInput.relationship.name.case('camelCase') $>', '<$ inputRelModel.getLabelFieldName() $>'),
                         <% } %>
 
                     <% } %>
