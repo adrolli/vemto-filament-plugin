@@ -7,9 +7,8 @@ namespace App\Filament\Resources\<$ this.inverseRelationshipModel.name $>Resourc
 
 use Filament\Forms;
 use Filament\Tables;
-use Filament\Resources\{
-    Form, Table
-};
+use Filament\Resources\Form;
+use Filament\Resources\Table;
 use Filament\Resources\RelationManagers\RelationManager;
 <% if(this.crudHasTextInputs) { %>
 use Filament\Forms\Components\TextInput;
