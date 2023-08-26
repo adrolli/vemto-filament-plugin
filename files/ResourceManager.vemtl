@@ -39,7 +39,7 @@ use Filament\Forms\Components\RichEditor;
 <% } %>
 <% if(this.crud.hasBelongsToInputs()) { %>
 use Filament\Forms\Components\BelongsToSelect;
-use Filament\Tables\Filters\MultiSelectFilter;
+use Filament\Tables\Filters\SelectFilter;
 <% } %>
 <% if(this.crud.model.hasTimestampFields()) { %>
 use Illuminate\Database\Eloquent\Builder;
@@ -213,7 +213,7 @@ class <$ this.crud.model.plural.case('pascalCase') $>RelationManager extends Rel
                         <% let inputRelModel = belongsToInput.relationship.model %>
                         <###>
                         <% if(belongsToInput.isForRelationship()) { %>
-                        MultiSelectFilter::make('<$ belongsToInput.name $>')->relationship('<$ belongsToInput.relationship.name.case('camelCase') $>', '<$ inputRelModel.getLabelFieldName() $>'),
+                        SelectFilter::make('<$ belongsToInput.name $>')->multiple()->relationship('<$ belongsToInput.relationship.name.case('camelCase') $>', '<$ inputRelModel.getLabelFieldName() $>'),
                         <% } %>
 
                     <% } %>
