@@ -7,6 +7,7 @@ namespace App\Filament\Resources\<$ crudModelName $>Resource\Pages;
 
 use Filament\Resources\Pages\ListRecords;
 use App\Filament\Traits\HasDescendingOrder;
+use Filament\Actions\CreateAction;
 use App\Filament\Resources\<$ crudModelName $>Resource;
 
 class List<$ this.crud.model.plural $> extends ListRecords
@@ -14,4 +15,11 @@ class List<$ this.crud.model.plural $> extends ListRecords
     use HasDescendingOrder;
 
     protected static string $resource = <$ crudModelName $>Resource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            CreateAction::make(),
+        ];
+    }
 }

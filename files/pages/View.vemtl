@@ -6,9 +6,19 @@
 namespace App\Filament\Resources\<$ crudModelName $>Resource\Pages;
 
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use App\Filament\Resources\<$ crudModelName $>Resource;
 
 class View<$ crudModelName $> extends ViewRecord
 {
     protected static string $resource = <$ crudModelName $>Resource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            EditAction::make(),
+            DeleteAction::make(),
+        ];
+    }
 }

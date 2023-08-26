@@ -4,6 +4,7 @@ Changes:
 
 - MultiSelectFilter -> SelectFilter->multiple()
 - streamline use Statements to be fetched by Rectory (Filament V3 update)
+- Add default edit, create, delete actions in pages and tables
 
 Then do:
 

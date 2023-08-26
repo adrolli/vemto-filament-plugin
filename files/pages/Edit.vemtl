@@ -6,9 +6,17 @@
 namespace App\Filament\Resources\<$ crudModelName $>Resource\Pages;
 
 use App\Filament\Resources\<$ crudModelName $>Resource;
+use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
 class Edit<$ crudModelName $> extends EditRecord
 {
     protected static string $resource = <$ crudModelName $>Resource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            DeleteAction::make(),
+        ];
+    }
 }
