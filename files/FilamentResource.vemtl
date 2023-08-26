@@ -8,12 +8,11 @@
 namespace App\Filament\Resources;
 
 use <$ modelsNamespace $>\<$ crudModelName $>;
-use Filament\{
-    Tables, Forms
-};
-use Filament\Resources\{
-    Form, Table, Resource
-};
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table; 
 use App\Filament\Resources\<$ crudModelName $>Resource\Pages;
 <% if(this.crudHasTextInputs) { %>
 use Filament\Forms\Components\TextInput;
