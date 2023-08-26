@@ -11,6 +11,11 @@ Then do:
 ```bash
 composer require filament/upgrade:"^3.0-stable" -W --dev
 vendor/bin/filament-v3
+```
+
+Remove or update the Livewire dependency in your composer.json
+
+```bash
 composer require filament/filament:"^3.0-stable" -W
 php artisan filament:install
 composer remove filament/upgrade
